@@ -12,8 +12,9 @@
 void Playing(vector<string> dict, int PlayTime, int DictSize) {
   int score = 0;
   int wrong = 0;
+  int ExitFlag = 0;
   time_t StartTime = time(NULL);
-  while (time(NULL) - StartTime < PlayTime) {
+  while (time(NULL) - StartTime < PlayTime and ExitFlag == 0) {
     system("clear");
     string NewWord = RandomWord(dict, DictSize);
     InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime));
@@ -22,6 +23,9 @@ void Playing(vector<string> dict, int PlayTime, int DictSize) {
     bool Equal = false;
     while (!Equal and (time(NULL) - StartTime < PlayTime)) {
       cin >> InputWord;
+      if (InputWord == "Выход") {
+        ExitFlag = 1;
+      }
       if (InputWord == NewWord) {
         score++;
         Equal = true;
