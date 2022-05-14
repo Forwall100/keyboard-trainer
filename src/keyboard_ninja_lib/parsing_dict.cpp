@@ -15,5 +15,6 @@ vector<string> parsing_dict(){
             dict.push_back(line);
         }
     }
+    file.close();
     return dict;
 }
