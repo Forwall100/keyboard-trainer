@@ -9,12 +9,14 @@
 
 using namespace std;
 
-
-void Playing(vector<string> dict, int PlayTime) {
-  time_t StartTime = time(NULL);
-  int i = 0;
+string RandomWord(vector<string> dict, int DictSize) {
+  return dict[rand() % DictSize];
+}
+void Playing(vector<string> dict, int PlayTime, int DictSize) {
   while (time(NULL) - StartTime < PlayTime) {
-    
+    string NewWord = RandomWord(dict, DictSize);
+    cout << "\n\n\n\t" << NewWord << "\n\n\n\n";
+    sleep(1);
   }
 }
 int main() {
@@ -25,6 +27,6 @@ int main() {
   int DictionarySize = dict.size();
   cout << DictionarySize << endl;
   cin >> PlayTime;
-  Playing(dict, PlayTime);
+  Playing(dict, PlayTime, DictionarySize);
   return 0;
 }
