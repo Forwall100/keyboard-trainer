@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void Save_statistic(int score, int wrong, int training_time)
+float Save_statistic(int score, int wrong, int training_time)
 {
     time_t now = time(NULL);
     tm *ltm = localtime(&now);
@@ -25,4 +25,5 @@ void Save_statistic(int score, int wrong, int training_time)
         out << "Время тренировки: " << (training_time < 0 ? 0 : training_time) << endl;
         out << "Кол-во слов в минуту: " << (float)score / ((float)training_time / 60.0) << endl;
     }
+    return (float)score / ((float)training_time / 60.0);
 }

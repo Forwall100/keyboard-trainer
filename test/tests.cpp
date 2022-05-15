@@ -2,6 +2,7 @@
 #include <ctest.h>
 #include <fstream>
 #include <iostream>
+#include <keyboard_ninja_lib/Save_statistics.hpp>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
 #include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <keyboard_ninja_lib/Playing.hpp>
@@ -62,4 +63,11 @@ CTEST(RandomWord, not_empty_string) {
   int dSize = dict.size();
   string not_empty_string = RandomWord(dict, dSize);
   ASSERT_TRUE(empty_string != not_empty_string);
+}
+
+CTEST(Save_statistic, test_wpm){
+  int score = 10, wrong = 5, training_time = 60;
+  float exp = (float)score / ((float)training_time / 60.0);
+  float real = Save_statistic(score, wrong, training_time);
+  ASSERT_DBL_NEAR(exp, real);
 }
