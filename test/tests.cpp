@@ -47,3 +47,19 @@ CTEST(EndGameOutput, test_negative) {
   double real = EndGameOutput(s, w, time);
   ASSERT_DBL_NEAR(exp, real);
 }
+
+CTEST(RandomWord, not_empty_string) {
+  string empty_string = "";
+  vector<string> dict;
+  string line;
+  ifstream file("dict.txt");
+  if (file.is_open()) {
+    while (getline(file, line)) {
+      dict.push_back(line);
+    }
+  }
+  file.close();
+  int dSize = dict.size();
+  string not_empty_string = RandomWord(dict, dSize);
+  ASSERT_TRUE(empty_string != not_empty_string);
+}
