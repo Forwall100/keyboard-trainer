@@ -8,8 +8,9 @@
 #include <vector>
 using namespace std;
 
-void InfoOutput(int s, int w, int time) {
+int InfoOutput(int s, int w, int time) {
   cout << "Правильно введенные слова: " << s << endl;
   cout << "НЕправильно введенные слова: " << w << endl;
   cout << "Осталось времени: " << (time < 0 ? 0 : time) << endl;
+  return (time < 0 ? 0 : time);
 }

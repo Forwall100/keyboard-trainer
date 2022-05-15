@@ -7,4 +7,4 @@
 #include <unistd.h>
 #include <vector>
 using namespace std;
-void InfoOutput(int, int, int);
+int InfoOutput(int, int, int);
