@@ -13,24 +13,28 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
   srand(time(NULL));
   vector<string> dict;
   int PlayTime;
   dict = parsing_dict();
   int DictionarySize = dict.size();
   int menu = 10;
-  while (menu != 0) {
+  while (menu != 0)
+  {
     cout << "Если вы хотите играть, введите 1" << endl;
     cout << "Если вы не хотите играть, введите 0" << endl;
     cin >> menu;
-    if (menu == 1) {
+    if (menu == 1)
+    {
       system("clear");
       cout << "Введите время тренировки: ";
       cin >> PlayTime;
       Playing(dict, PlayTime, DictionarySize);
     }
-    if (menu != 0 and menu != 1) {
+    if (menu != 0 and menu != 1)
+    {
       system("clear");
       continue;
     }
