@@ -7,4 +7,4 @@
 #include <unistd.h>
 #include <vector>
 using namespace std;
-void EndGameOutput(int, int, int);
+int EndGameOutput(int, int, int);

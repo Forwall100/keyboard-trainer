@@ -40,3 +40,10 @@ CTEST(parsing_dict, test_first_line) {
   vector<string> real = parsing_dict();
   ASSERT_TRUE((exp == real));
 }
+
+CTEST(EndGameOutput, test_negative) {
+  int w = 10, s = 10, time = 60;
+  const float exp = (float)s / ((float)time / 60.0);
+  double real = EndGameOutput(s, w, time);
+  ASSERT_DBL_NEAR(exp, real);
+}
