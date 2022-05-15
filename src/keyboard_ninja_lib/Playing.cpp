@@ -1,6 +1,7 @@
 #include "../keyboard_ninja_lib/EndgameOutput.hpp"
 #include "../keyboard_ninja_lib/InfoOutput.hpp"
 #include "../keyboard_ninja_lib/RandomWord.hpp"
+#include "../keyboard_ninja_lib/Save_statistics.hpp"
 #include "Playing.hpp"
 #include <iostream>
 #include <random>
@@ -39,6 +40,10 @@ void Playing(vector<string> dict, int PlayTime, int DictSize) {
     }
     system("clear");
   }
-
+  char choice;
   EndGameOutput(score, wrong, PlayTime);
+  cin >> choice;
+  if (choice == 'y'){
+    Save_statistic(score, wrong, PlayTime);
+  }
 }
