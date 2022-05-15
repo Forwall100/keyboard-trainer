@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <ctest.h>
+#include <fstream>
 #include <iostream>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
 #include <keyboard_ninja_lib/InfoOutput.hpp>
@@ -24,4 +25,18 @@ CTEST(InfoOutput, test_negative) {
   const double exp = 0;
   double real = InfoOutput(5, 10, a);
   ASSERT_DBL_NEAR(exp, real);
+}
+
+CTEST(parsing_dict, test_first_line) {
+  vector<string> exp;
+  string line;
+  ifstream file("dict.txt");
+  if (file.is_open()) {
+    while (getline(file, line)) {
+      exp.push_back(line);
+    }
+  }
+  file.close();
+  vector<string> real = parsing_dict();
+  ASSERT_TRUE((exp == real));
 }
