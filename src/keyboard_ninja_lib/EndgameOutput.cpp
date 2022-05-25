@@ -1,4 +1,4 @@
-#include "EndgameOutput.hpp"
+#include <keyboard_ninja_lib/EndgameOutput.hpp>
 #include <iostream>
 #include <random>
 #include <stdlib.h>

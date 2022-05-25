@@ -1,4 +1,4 @@
-#include "InfoOutput.hpp"
+#include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <iostream>
 #include <random>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-#include "RandomWord.hpp"
+#include <keyboard_ninja_lib/RandomWord.hpp>
 #include <iostream>
 #include <random>
 #include <stdlib.h>

@@ -1,8 +1,8 @@
-#include "../keyboard_ninja_lib/EndgameOutput.hpp"
-#include "../keyboard_ninja_lib/InfoOutput.hpp"
-#include "../keyboard_ninja_lib/RandomWord.hpp"
-#include "../keyboard_ninja_lib/Save_statistics.hpp"
-#include "Playing.hpp"
+#include <keyboard_ninja_lib/EndgameOutput.hpp>
+#include <keyboard_ninja_lib/InfoOutput.hpp>
+#include <keyboard_ninja_lib/RandomWord.hpp>
+#include <keyboard_ninja_lib/Save_statistics.hpp>
+#include <keyboard_ninja_lib/Playing.hpp>
 #include <iostream>
 #include <random>
 #include <stdlib.h>
