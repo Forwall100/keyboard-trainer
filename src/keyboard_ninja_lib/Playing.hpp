@@ -6,4 +6,4 @@
 #include <unistd.h>
 #include <vector>
 using namespace std;
-void Playing(vector<string>, int, int);
+int Playing(vector<string>, int, int);

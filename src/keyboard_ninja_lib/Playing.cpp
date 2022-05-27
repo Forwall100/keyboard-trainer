@@ -1,16 +1,19 @@
+#include <iostream>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
 #include <keyboard_ninja_lib/InfoOutput.hpp>
+#include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
 #include <keyboard_ninja_lib/Save_statistics.hpp>
-#include <keyboard_ninja_lib/Playing.hpp>
-#include <iostream>
 #include <random>
 #include <stdlib.h>
 #include <string>
 #include <time.h>
 #include <unistd.h>
 #include <vector>
-void Playing(vector<string> dict, int PlayTime, int DictSize) {
+int Playing(vector<string> dict, int PlayTime, int DictSize) {
+  if (PlayTime <= 0) {
+    return 0;
+  }
   int score = 0;
   int wrong = 0;
   int ExitFlag = 0;
@@ -25,7 +28,7 @@ void Playing(vector<string> dict, int PlayTime, int DictSize) {
     while (!Equal and (time(NULL) - StartTime < PlayTime)) {
       cin >> InputWord;
       if (InputWord == "Выход") {
-      wrong--;
+        wrong--;
         ExitFlag = 1;
       }
       if (InputWord == NewWord) {
@@ -43,7 +46,8 @@ void Playing(vector<string> dict, int PlayTime, int DictSize) {
   char choice;
   EndGameOutput(score, wrong, PlayTime);
   cin >> choice;
-  if (choice == 'y'){
+  if (choice == 'y') {
     Save_statistic(score, wrong, PlayTime);
   }
+  return 0;
 }
