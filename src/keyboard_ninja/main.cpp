@@ -19,6 +19,10 @@ int main() {
   int PlayTime;
   dict = parsing_dict();
   int DictionarySize = dict.size();
+  if (DictionarySize == 0) {
+    cout << "Словарь пуст!!!" << endl;
+    return 0;
+  }
   int menu = 10;
   while (menu != 0) {
     cout << "Если вы хотите играть, введите 1" << endl;
