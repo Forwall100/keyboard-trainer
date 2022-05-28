@@ -25,7 +25,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
     cout << "\n\n\n\t" << NewWord << "\n\n\n\n";
     string InputWord;
     bool Equal = false;
-    while (!Equal and (time(NULL) - StartTime < PlayTime)) {
+    while (!Equal and (time(NULL) - StartTime < PlayTime) and ExitFlag == 0) {
       cin >> InputWord;
       if (InputWord == "Выход") {
         wrong--;
