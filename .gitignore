@@ -3,3 +3,4 @@ github.pub
 obj/
 .vscode
 bin/keyboard_ninja
+bin/test

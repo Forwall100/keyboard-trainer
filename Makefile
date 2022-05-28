@@ -2,32 +2,57 @@ CC = g++
 
 APP_NAME = keyboard_ninja
 LIB_NAME = keyboard_ninja_lib
+TEST_NAME = test
 
-CFLAGS = -Wall -Wextra -lstdc++
+CFLAGS = -Wall -Wextra -lstdc++ -lm
+CPPFLAGS = -I src -MP -MMD
+LDFLAGS =
+LDLIBS =
 
-APP_PATH = bin/$(APP_NAME)
-LIB_PATH = obj/src/$(LIB_NAME)/$(LIB_NAME).a
+BIN_DIR = bin
+OBJ_DIR = obj
+SRC_DIR = src
+TEST_DIR = test
 
-APP_SOURCES = $(shell find src/$(APP_NAME) -name '*.cpp')
-APP_OBJECTS = $(APP_SOURCES:src/%.cpp=obj/src/%.o)
+APP_PATH = $(BIN_DIR)/$(APP_NAME)
+LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
+TEST_PATH = $(BIN_DIR)/$(TEST_DIR)
 
-LIB_SOURCES = $(shell find src/$(LIB_NAME) -name '*.cpp')
-LIB_OBJECTS = $(LIB_SOURCES:src/%.cpp=obj/src/%.o)
+SRC_EXT = cpp
 
-.PHONY: all
+APP_SRC = $(shell find $(SRC_DIR)/$(APP_NAME) -name '*.$(SRC_EXT)')
+APP_OBJ = $(APP_SRC:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
+
+LIB_SRC = $(shell find $(SRC_DIR)/$(LIB_NAME) -name '*.$(SRC_EXT)')
+LIB_OBJ = $(LIB_SRC:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
+
+TEST_SRC = $(shell find test -name '*.$(SRC_EXT)')
+TEST_OBJ = $(TEST_SRC:test/%.cpp=obj/test/%.o)
+
+DEPS = $(APP_OBJ:.o=.d) $(LIB_OBJ:.o=.d) $(TEST_OBJ:.o=.d)
+
+.PHONY: all test clean
 all: $(APP_PATH)
 
-$(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
-	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+-include $(DEPS)
 
-$(LIB_PATH): $(LIB_OBJECTS)
+$(APP_PATH): $(APP_OBJ) $(LIB_PATH)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+
+$(LIB_PATH): $(LIB_OBJ)
 	ar rcs $@ $^
 
-obj/%.o: %.cpp
-	$(CC) -c $(CFLAGS) $< -o $@
+$(OBJ_DIR)/%.o: %.cpp
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) -I thirdparty $< -o $@ -lm
+	
+test: $(TEST_PATH)
+-include $(DEPS)
+$(TEST_PATH): $(TEST_OBJ) $(LIB_PATH)
+	$(CC) $(CFLAGS) -I thirdparty $^ -o $@ $(LDFLAGS) $(LDLIBS) -lm
 
-.PHONY: clean
+
 clean:
-	$(RM) $(APP_PATH) $(LIB_PATH)
-	find obj -name '*.o' -exec $(RM) '{}' \;
-	find obj -name '*.d' -exec $(RM) '{}' \;
+	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
+	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
+	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
+	
