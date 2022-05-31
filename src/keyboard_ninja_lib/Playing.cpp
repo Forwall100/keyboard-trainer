@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
@@ -49,5 +50,6 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
   if (choice == 'y') {
     Save_statistic(score, wrong, PlayTime);
   }
+  system("clear");
   return 0;
 }
