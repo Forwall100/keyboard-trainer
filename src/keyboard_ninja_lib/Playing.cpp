@@ -1,23 +1,23 @@
 #include <iostream>
+#include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
 #include <keyboard_ninja_lib/InfoOutput.hpp>
-#include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
 #include <keyboard_ninja_lib/Save_statistics.hpp>
-#include <random>
-#include <stdlib.h>
 #include <string>
 #include <time.h>
-#include <unistd.h>
 #include <vector>
+
 int Playing(vector<string> dict, int PlayTime, int DictSize) {
   if (PlayTime <= 0) {
     return 0;
   }
+
   int score = 0;
   int wrong = 0;
   int ExitFlag = 0;
   time_t StartTime = time(NULL);
+
   while (time(NULL) - StartTime < PlayTime and ExitFlag == 0) {
     system("clear");
     string NewWord = RandomWord(dict, DictSize);

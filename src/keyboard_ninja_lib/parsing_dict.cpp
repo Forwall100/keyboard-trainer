@@ -1,5 +1,4 @@
 #include <fstream>
-#include <iostream>
 #include <keyboard_ninja_lib/parsing_dict.hpp>
 #include <string>
 #include <vector>

@@ -8,12 +8,15 @@ using namespace std;
 float Save_statistic(int score, int wrong, int training_time) {
   time_t now = time(NULL);
   tm *ltm = localtime(&now);
+
   auto year = 1900 + ltm->tm_year;
   auto month = ltm->tm_mon;
   auto day = 1 + ltm->tm_mday;
   auto hour = ltm->tm_hour;
   auto min = ltm->tm_min;
+
   ofstream out("./statistic.txt", ios::app);
+  
   if (out.is_open()) {
     out << "\n\n";
     out << "Тренировка " << day << "." << month << "." << year << " " << hour

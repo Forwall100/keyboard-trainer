@@ -1,11 +1,6 @@
 #include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <iostream>
-#include <random>
-#include <stdlib.h>
-#include <string>
-#include <time.h>
-#include <unistd.h>
-#include <vector>
+
 using namespace std;
 
 int InfoOutput(int s, int w, int time) {
