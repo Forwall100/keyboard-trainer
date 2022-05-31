@@ -6,17 +6,21 @@
 using namespace std;
 
 float Save_statistic(int score, int wrong, int training_time) {
+  // Получаем текущее время
   time_t now = time(NULL);
   tm *ltm = localtime(&now);
 
+  // Записываем в отдельные переменные текущий год, месяц, день, час, минуту
   auto year = 1900 + ltm->tm_year;
   auto month = ltm->tm_mon;
   auto day = 1 + ltm->tm_mday;
   auto hour = ltm->tm_hour;
   auto min = ltm->tm_min;
 
+  // Открывваем файл статистики
   ofstream out("./statistic.txt", ios::app);
-  
+
+  // Записываем статистику в файл
   if (out.is_open()) {
     out << "\n\n";
     out << "Тренировка " << day << "." << month << "." << year << " " << hour
@@ -29,5 +33,6 @@ float Save_statistic(int score, int wrong, int training_time) {
         << (float)score / ((float)training_time / 60.0) << endl;
   }
   out.close();
+  
   return (float)score / ((float)training_time / 60.0);
 }
