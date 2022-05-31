@@ -24,7 +24,7 @@ int main() {
   int DictionarySize = dict.size();
 
   if (DictionarySize == 0) {
-    cout << "Словарь пуст!!!" << endl;
+    cout << "Файл dict.txt пуст" << endl;
     return 0;
   }
 
