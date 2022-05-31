@@ -1,8 +1,7 @@
-#include <cstdlib>
 #include <iostream>
-#include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
 #include <keyboard_ninja_lib/InfoOutput.hpp>
+#include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
 #include <keyboard_ninja_lib/Save_statistics.hpp>
 #include <string>
