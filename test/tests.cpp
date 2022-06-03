@@ -7,7 +7,7 @@
 #include <keyboard_ninja_lib/ParsingDict.hpp>
 #include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
-#include <keyboard_ninja_lib/SaveStatistics.hpp>
+#include <keyboard_ninja_lib/SaveStatistic.hpp>
 #include <random>
 #include <stdlib.h>
 #include <string>
@@ -15,41 +15,56 @@
 #include <unistd.h>
 #include <vector>
 
-CTEST(InfoOutput, test_positive) {
-  double a = 12;
-  const double exp = 12;
-  double real = InfoOutput(5, 10, a);
-  ASSERT_DBL_NEAR(exp, real);
+CTEST(InfoOutput,
+      test_positive) { // проверка InfoOutput с положительным временем, в
+                       // результате функция должна возвращать это же время
+  int time = 12;
+  const int exp = 12;
+  int real = InfoOutput(5, 10, time);
+  ASSERT_EQUAL(exp, real);
 }
-CTEST(InfoOutput, test_negative) {
-  double a = -12;
-  const double exp = 0;
-  double real = InfoOutput(5, 10, a);
-  ASSERT_DBL_NEAR(exp, real);
+CTEST(InfoOutput,
+      test_negative) { // проверка InfoOutput с отрицательным временем, в
+                       // результате функция должна возвращать 0
+  int time = -12;
+  const int exp = 0;
+  int real = InfoOutput(5, 10, time);
+  ASSERT_EQUAL(exp, real);
 }
 
-CTEST(ParsingDct, test_dict_parsing) {
+CTEST(ParsingDict,
+      test_dict_parsing) { // проверка функции ParsingDict, функция вызывается с
+                           // путем до тестового словаря в папке test в качестве
+                           // аргумента, после чего полученный словарь
+                           // сравнивается с такими же значениями, которые
+                           // вносятся в вектор вручную
   vector<string> exp;
   string line;
   exp.push_back("проверка");
   exp.push_back("тест");
   exp.push_back("холодильник");
-  vector<string> real = ParsingDct("test/test_dict.txt");
+  vector<string> real = ParsingDict("test/test_dict.txt");
   ASSERT_TRUE((exp == real));
 }
 
-CTEST(EndGameOutput, test_negative) {
-  int w = 10, s = 10, time = 60;
-  const float exp = (float)s / ((float)time / 60.0);
-  double real = EndGameOutput(s, w, time);
-  ASSERT_DBL_NEAR(exp, real);
+CTEST(EndGameOutput,
+      test_negative) { // проверка функции EndGameOutput, полностью проверяется
+                       // вывод строк в терминал
+  int WrongWord = 10, CorrectWord = 10, time = 60;
+  float words_per_minute = (CorrectWord * 60) / time;
+  string exp = "Правильно введенные слова: " + to_string(CorrectWord) +
+               "\nНeправильно введенные слова: " + to_string(WrongWord) +
+               "\nВремя тренировки: " + to_string(time) +
+               "\nКол-во слов в минуту: " + to_string(words_per_minute) + "\n";
+  string real = EndGameOutput(CorrectWord, WrongWord, time);
+  ASSERT_TRUE((exp == real));
 }
 
-CTEST(RandomWord, not_empty_string) {
+CTEST(RandomWord, RandomWord_in_dictionary) { // проверяется функция RandomWord на то, входит ли возвращаемое слово в используемый словарь
   string empty_string = "";
   vector<string> dict;
   string line;
-  ifstream file("dict.txt");
+  ifstream file("test/test_dict.txt");
   if (file.is_open()) {
     while (getline(file, line)) {
       dict.push_back(line);
@@ -57,8 +72,14 @@ CTEST(RandomWord, not_empty_string) {
   }
   file.close();
   int dSize = dict.size();
-  string not_empty_string = RandomWord(dict, dSize);
-  ASSERT_TRUE(empty_string != not_empty_string);
+  string real = RandomWord(dict, dSize);
+  int flag = 0;
+  for (int i = 0; i < dSize; i++) {
+    if (dict[i] == real){
+      flag = 1;
+    }
+  }
+  ASSERT_EQUAL(flag, 1);
 }
 
 CTEST(SaveStatistic, test_wpm) {
