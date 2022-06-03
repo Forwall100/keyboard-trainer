@@ -16,20 +16,23 @@
 #include <vector>
 
 CTEST(InfoOutput,
-      test_positive) { // проверка InfoOutput с положительным временем, в
-                       // результате функция должна возвращать это же время
-  int time = 12;
-  const int exp = 12;
-  int real = InfoOutput(5, 10, time);
-  ASSERT_EQUAL(exp, real);
+      positive_time) { // проверка InfoOutput с положительным временем, в
+                       // результате функция должна возвращать все данные с этим
+                       // же временем
+  int time = 12, CorrectWord = 5, WrongWord = 10;
+  string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
+               "10\nОсталось времени: 12 сек";
+  string real = InfoOutput(CorrectWord, WrongWord, time);
+  ASSERT_TRUE((exp == real));
 }
 CTEST(InfoOutput,
-      test_negative) { // проверка InfoOutput с отрицательным временем, в
+      negative_time) { // проверка InfoOutput с отрицательным временем, в
                        // результате функция должна возвращать 0
-  int time = -12;
-  const int exp = 0;
-  int real = InfoOutput(5, 10, time);
-  ASSERT_EQUAL(exp, real);
+  int time = -12, CorrectWord = 5, WrongWord = 10;
+  string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
+               "10\nОсталось времени: 0 сек";
+  string real = InfoOutput(CorrectWord, WrongWord, time);
+  ASSERT_TRUE((exp == real));
 }
 
 CTEST(ParsingDict,
