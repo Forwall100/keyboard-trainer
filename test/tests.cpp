@@ -26,8 +26,9 @@ CTEST(InfoOutput,
   ASSERT_TRUE((exp == real));
 }
 CTEST(InfoOutput,
-      negative_time) { // проверка InfoOutput с отрицательным временем, в
-                       // результате функция должна возвращать 0
+      negative_time) { // проверка InfoOutput с положительным временем, в
+                       // результате функция должна возвращать все данные с
+                       // нулевым временем
   int time = -12, CorrectWord = 5, WrongWord = 10;
   string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
                "10\nОсталось времени: 0 сек";
