@@ -4,4 +4,4 @@ obj/
 .vscode
 bin/keyboard_ninja
 bin/test
-bin/statistic.txt
+statistic.txt
