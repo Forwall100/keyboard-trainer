@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
   }
 
   vector<string> dict;
-  dict = parsing_dict(DictPath);
+  dict = ParsingDict(DictPath);
 
   int PlayTime; //перменная, отвечающая за время игры
   int menu;

@@ -3,7 +3,7 @@
 #include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
-#include <keyboard_ninja_lib/SaveStatistics.hpp>
+#include <keyboard_ninja_lib/SaveStatistic.hpp>
 #include <string>
 #include <time.h>
 #include <vector>
@@ -60,7 +60,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
   EndGameOutput(score, wrong, PlayTime);
   cin >> choice;
   if (choice == 'y') {
-    Save_statistic(score, wrong, PlayTime);
+    SaveStatistic(score, wrong, PlayTime);
   }
   system("clear");
   return 0;
