@@ -57,7 +57,7 @@ CTEST(EndGameOutput,
                "\nВремя тренировки: " + to_string(time) +
                "\nКол-во слов в минуту: " + to_string(words_per_minute) +
                +"\n\n\n\n\nСохранить статистику? (y/n)";
-  
+
   string real = EndGameOutput(CorrectWord, WrongWord, time);
   ASSERT_TRUE((exp == real));
 }
@@ -93,8 +93,8 @@ CTEST(SaveStatistic, test_wpm) {
 
   // Записываем в отдельные переменные текущий год, месяц, день, час, минуту
   auto year = 1900 + ltm->tm_year;
-  auto month = ltm->tm_mon;
-  auto day = 1 + ltm->tm_mday;
+  auto month = 1 + ltm->tm_mon;
+  auto day = ltm->tm_mday;
   auto hour = ltm->tm_hour;
   auto min = ltm->tm_min;
   int score = 10, wrong = 5, training_time = 60;
