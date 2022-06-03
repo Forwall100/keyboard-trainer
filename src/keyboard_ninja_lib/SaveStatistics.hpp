@@ -1,3 +1,4 @@
 #pragma once
+#include <string>
 
-float SaveStatistic(int score, int wrong, int time);
+std::string SaveStatistic(int score, int wrong, int time);
