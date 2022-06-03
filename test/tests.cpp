@@ -70,7 +70,6 @@ CTEST(
     RandomWord,
     RandomWord_in_dictionary) { // проверяется функция RandomWord на то, входит
                                 // ли возвращаемое слово в используемый словарь
-  string empty_string = "";
   vector<string> dict;
   string line;
   ifstream file("test/test_dict.txt");
