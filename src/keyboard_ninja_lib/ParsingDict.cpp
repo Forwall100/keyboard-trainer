@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> ParsingDct(string DictPath) {
+vector<string> ParsingDict(string DictPath) {
   // Создаем вектор, в котором будут храниться слова из словаря
   vector<string> dict;
   string line;
