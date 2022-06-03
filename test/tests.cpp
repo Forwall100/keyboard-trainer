@@ -28,17 +28,13 @@ CTEST(InfoOutput, test_negative) {
   ASSERT_DBL_NEAR(exp, real);
 }
 
-CTEST(ParsingDct, test_first_line) {
+CTEST(ParsingDct, test_dict_parsing) {
   vector<string> exp;
   string line;
-  ifstream file("dict.txt");
-  if (file.is_open()) {
-    while (getline(file, line)) {
-      exp.push_back(line);
-    }
-  }
-  file.close();
-  vector<string> real = ParsingDct();
+  exp.push_back("проверка");
+  exp.push_back("тест");
+  exp.push_back("холодильник");
+  vector<string> real = ParsingDct("test/test_dict.txt");
   ASSERT_TRUE((exp == real));
 }
 
