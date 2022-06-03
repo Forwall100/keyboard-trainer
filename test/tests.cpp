@@ -28,7 +28,7 @@ CTEST(InfoOutput, test_negative) {
   ASSERT_DBL_NEAR(exp, real);
 }
 
-CTEST(parsing_dict, test_first_line) {
+CTEST(ParsingDct, test_first_line) {
   vector<string> exp;
   string line;
   ifstream file("dict.txt");
@@ -38,7 +38,7 @@ CTEST(parsing_dict, test_first_line) {
     }
   }
   file.close();
-  vector<string> real = parsing_dict();
+  vector<string> real = ParsingDct();
   ASSERT_TRUE((exp == real));
 }
 
@@ -65,10 +65,10 @@ CTEST(RandomWord, not_empty_string) {
   ASSERT_TRUE(empty_string != not_empty_string);
 }
 
-CTEST(Save_statistic, test_wpm){
+CTEST(SaveStatistic, test_wpm){
   int score = 10, wrong = 5, training_time = 60;
   float exp = (float)score / ((float)training_time / 60.0);
-  float real = Save_statistic(score, wrong, training_time);
+  float real = SaveStatistic(score, wrong, training_time);
   ASSERT_DBL_NEAR(exp, real);
   remove("./statistic.txt");
 }

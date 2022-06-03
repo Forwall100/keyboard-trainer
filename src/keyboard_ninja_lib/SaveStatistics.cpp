@@ -5,7 +5,7 @@
 
 using namespace std;
 
-float Save_statistic(int score, int wrong, int training_time) {
+float SaveStatistic(int score, int wrong, int training_time) {
   // Получаем текущее время
   time_t now = time(NULL);
   tm *ltm = localtime(&now);

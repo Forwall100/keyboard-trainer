@@ -1,3 +1,3 @@
 #pragma once
 
-float Save_statistic(int score, int wrong, int time);
+float SaveStatistic(int score, int wrong, int time);

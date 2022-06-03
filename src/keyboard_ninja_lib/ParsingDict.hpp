@@ -5,4 +5,4 @@
 
 using namespace std;
 
-vector<string> parsing_dict(string);
+vector<string> ParsingDct(string);

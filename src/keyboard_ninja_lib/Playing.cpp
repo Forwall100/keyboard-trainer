@@ -62,7 +62,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
   EndGameOutput(score, wrong, PlayTime);
   cin >> choice;
   if (choice == 'y') {
-    Save_statistic(score, wrong, PlayTime);
+    SaveStatistic(score, wrong, PlayTime);
   }
   system("clear");
   return 0;
