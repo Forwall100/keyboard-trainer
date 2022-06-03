@@ -70,4 +70,5 @@ CTEST(Save_statistic, test_wpm){
   float exp = (float)score / ((float)training_time / 60.0);
   float real = Save_statistic(score, wrong, training_time);
   ASSERT_DBL_NEAR(exp, real);
+  remove("./statistic.txt");
 }
