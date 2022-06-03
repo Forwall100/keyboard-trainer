@@ -55,12 +55,17 @@ CTEST(EndGameOutput,
   string exp = "Правильно введенные слова: " + to_string(CorrectWord) +
                "\nНeправильно введенные слова: " + to_string(WrongWord) +
                "\nВремя тренировки: " + to_string(time) +
-               "\nКол-во слов в минуту: " + to_string(words_per_minute) + "\n";
+               "\nКол-во слов в минуту: " + to_string(words_per_minute) +
+               +"\n\n\n\n\nСохранить статистику? (y/n)";
+  
   string real = EndGameOutput(CorrectWord, WrongWord, time);
   ASSERT_TRUE((exp == real));
 }
 
-CTEST(RandomWord, RandomWord_in_dictionary) { // проверяется функция RandomWord на то, входит ли возвращаемое слово в используемый словарь
+CTEST(
+    RandomWord,
+    RandomWord_in_dictionary) { // проверяется функция RandomWord на то, входит
+                                // ли возвращаемое слово в используемый словарь
   string empty_string = "";
   vector<string> dict;
   string line;
@@ -75,7 +80,7 @@ CTEST(RandomWord, RandomWord_in_dictionary) { // проверяется функ
   string real = RandomWord(dict, dSize);
   int flag = 0;
   for (int i = 0; i < dSize; i++) {
-    if (dict[i] == real){
+    if (dict[i] == real) {
       flag = 1;
     }
   }
