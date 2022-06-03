@@ -13,19 +13,28 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char *argv[]) {
   srand(time(NULL));
 
+  // Если были переданы параметры запуска, то записываем содержимое этого
+  // параметра в DictPath, значение по умолчанию './dict.txt'
+  string DictPath;
+  if (argc > 1) {
+    DictPath += argv[1];
+  } else {
+    DictPath = "./dict.txt";
+  }
+
   vector<string> dict;
-  dict = parsing_dict(); //парсинг словаря в вектор dict
+  dict = parsing_dict(DictPath);
 
   int PlayTime; //перменная, отвечающая за время игры
   int menu;
   int DictionarySize = dict.size(); //переменная, обозначающая размер словаря
 
   if (DictionarySize == 0) {
-    cout << "Файл dict.txt пуст" << endl;
-    return 0; //вывод ошибки в случае, если словарь окажется пустым
+    cout << "Файл словаря пуст" << endl;
+    return 0;
   }
 
   while (menu != 0) {

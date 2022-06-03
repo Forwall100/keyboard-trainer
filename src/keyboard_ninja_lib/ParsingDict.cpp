@@ -5,13 +5,13 @@
 
 using namespace std;
 
-vector<string> parsing_dict() {
+vector<string> parsing_dict(string DictPath) {
   // Создаем вектор, в котором будут храниться слова из словаря
   vector<string> dict;
   string line;
 
   // Открываем файл словаря
-  ifstream file("./dict.txt");
+  ifstream file(DictPath);
 
   // Построчно читаем файл словаря и добавляем слова в вектор
   if (file.is_open()) {
