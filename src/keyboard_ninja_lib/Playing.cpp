@@ -3,7 +3,7 @@
 #include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
-#include <keyboard_ninja_lib/Save_statistics.hpp>
+#include <keyboard_ninja_lib/SaveStatistics.hpp>
 #include <string>
 #include <time.h>
 #include <vector>

@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-#include <keyboard_ninja_lib/Save_statistics.hpp>
+#include <keyboard_ninja_lib/SaveStatistics.hpp>
 #include <time.h>
 
 using namespace std;

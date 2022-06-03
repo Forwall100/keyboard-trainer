@@ -3,7 +3,7 @@
 #include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
-#include <keyboard_ninja_lib/parsing_dict.hpp>
+#include <keyboard_ninja_lib/ParsingDict.hpp>
 #include <random>
 #include <stdlib.h>
 #include <string>
@@ -38,7 +38,7 @@ int main() {
       cin >> PlayTime;
       if (!cin) {
         cin.clear();
-        cin.ignore(100500, '\n');
+        cin.ignore(100000, '\n');
       }
       Playing(dict, PlayTime, DictionarySize);
     }
