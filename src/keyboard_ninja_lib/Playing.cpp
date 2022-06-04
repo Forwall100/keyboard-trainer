@@ -13,7 +13,8 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
     return 0;
   } //прекращение работы программы, если введено отрицательное время
 
-  int score = 0, wrong = 0, ExitFlag = 0; //переменная, отвечающая за подсчёт верных слов
+  int score = 0, wrong = 0,
+      ExitFlag = 0; //переменная, отвечающая за подсчёт верных слов
   time_t StartTime = time(NULL);
 
   while (time(NULL) - StartTime < PlayTime and
