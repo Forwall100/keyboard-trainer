@@ -6,8 +6,6 @@ TEST_NAME = test
 
 CFLAGS = -Wall -Wextra -lstdc++ -lm
 CPPFLAGS = -I src -MP -MMD
-LDFLAGS =
-LDLIBS =
 
 BIN_DIR = bin
 OBJ_DIR = obj
@@ -17,6 +15,14 @@ TEST_DIR = test
 APP_PATH = $(BIN_DIR)/$(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 TEST_PATH = $(BIN_DIR)/$(TEST_DIR)
+APP_FOLDER_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME)
+LIB_FOLDER_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)
+TEST_FOLDER_PATH = $(OBJ_DIR)/$(TEST_DIR)
+
+BUILD_FOLD := $(shell mkdir -p $(BIN_DIR))
+BUILD_FOLD := $(shell mkdir -p $(APP_FOLDER_PATH))
+BUILD_FOLD := $(shell mkdir -p $(LIB_FOLDER_PATH))
+BUILD_FOLD := $(shell mkdir -p $(TEST_FOLDER_PATH))
 
 SRC_EXT = cpp
 
@@ -34,10 +40,13 @@ DEPS = $(APP_OBJ:.o=.d) $(LIB_OBJ:.o=.d) $(TEST_OBJ:.o=.d)
 .PHONY: all test clean
 all: $(APP_PATH)
 
--include $(DEPS)
+# $(APP_PATH): $(BIN_DIR) 
+# 	mkdir -p $@ $^
 
+-include $(DEPS)
+	
 $(APP_PATH): $(APP_OBJ) $(LIB_PATH)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ 
 
 $(LIB_PATH): $(LIB_OBJ)
 	ar rcs $@ $^
@@ -48,7 +57,7 @@ $(OBJ_DIR)/%.o: %.cpp
 test: $(TEST_PATH)
 -include $(DEPS)
 $(TEST_PATH): $(TEST_OBJ) $(LIB_PATH)
-	$(CC) $(CFLAGS) -I thirdparty $^ -o $@ $(LDFLAGS) $(LDLIBS) -lm
+	$(CC) $(CFLAGS) -I thirdparty $^ -o $@ -lm
 
 
 clean:
