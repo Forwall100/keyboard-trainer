@@ -40,9 +40,6 @@ DEPS = $(APP_OBJ:.o=.d) $(LIB_OBJ:.o=.d) $(TEST_OBJ:.o=.d)
 .PHONY: all test clean
 all: $(APP_PATH)
 
-# $(APP_PATH): $(BIN_DIR) 
-# 	mkdir -p $@ $^
-
 -include $(DEPS)
 	
 $(APP_PATH): $(APP_OBJ) $(LIB_PATH)
@@ -58,7 +55,6 @@ test: $(TEST_PATH)
 -include $(DEPS)
 $(TEST_PATH): $(TEST_OBJ) $(LIB_PATH)
 	$(CC) $(CFLAGS) -I thirdparty $^ -o $@ -lm
-
 
 clean:
 	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
