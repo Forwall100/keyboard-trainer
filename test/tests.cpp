@@ -53,7 +53,7 @@ CTEST(ParsingDict,
 
 CTEST(EndGameOutput,
       test_string) { // проверка функции EndGameOutput, полностью проверяется
-                       // вывод строк в терминал
+                     // вывод строк в терминал
   int WrongWord = 10, CorrectWord = 10, time = 60;
   float words_per_minute = (CorrectWord * 60) / time;
   string exp = "Правильно введенные слова: " + to_string(CorrectWord) +
