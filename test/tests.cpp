@@ -14,7 +14,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <vector>
-
+using namespace std;
 CTEST(InfoOutput,
       positive_time) { // проверка InfoOutput с положительным временем, в
                        // результате функция должна возвращать все данные с этим
