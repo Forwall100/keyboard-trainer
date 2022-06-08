@@ -62,7 +62,7 @@ CTEST(EndGameOutput,
                "\nКол-во слов в минуту: " + to_string(words_per_minute) +
                +"\n\n\n\n\nСохранить статистику? (y/n)";
 
-  string real = EndGameOutput(CorrectWord, WrongWord, time);
+  string real = EndGameOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 

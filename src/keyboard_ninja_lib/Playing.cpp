@@ -57,7 +57,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
     system("clear");
   }
   char choice; //для решения о сохранении статистики
-  EndGameOutput(score, wrong, PlayTime);
+  EndGameOutput(score, wrong, PlayTime, true);
   cin >> choice;
   if (choice == 'y') {
     SaveStatistic(score, wrong, PlayTime);
