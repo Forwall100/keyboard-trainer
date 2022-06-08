@@ -1,8 +1,5 @@
 #include <fstream>
-#include <iostream>
 #include <keyboard_ninja_lib/SaveStatistic.hpp>
-#include <string>
-#include <time.h>
 
 using namespace std;
 

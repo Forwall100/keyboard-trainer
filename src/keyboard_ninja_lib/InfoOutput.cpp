@@ -1,6 +1,5 @@
 #include <iostream>
 #include <keyboard_ninja_lib/InfoOutput.hpp>
-#include <string>
 
 using namespace std;
 // функция получает не вход количество правильных слов, неправильных слов и
