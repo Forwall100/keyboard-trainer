@@ -1,4 +1,4 @@
 #pragma once
 #include <string>
 
-std::string InfoOutput(int, int, int);
+std::string InfoOutput(int, int, int, bool);

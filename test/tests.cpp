@@ -22,7 +22,7 @@ CTEST(InfoOutput,
   int time = 12, CorrectWord = 5, WrongWord = 10;
   string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
                "10\nОсталось времени: 12 сек";
-  string real = InfoOutput(CorrectWord, WrongWord, time);
+  string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 CTEST(InfoOutput,
@@ -32,7 +32,7 @@ CTEST(InfoOutput,
   int time = -12, CorrectWord = 5, WrongWord = 10;
   string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
                "10\nОсталось времени: 0 сек";
-  string real = InfoOutput(CorrectWord, WrongWord, time);
+  string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 

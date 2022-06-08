@@ -25,7 +25,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
         RandomWord(dict, DictSize); //выбор случайного слова для ввода
     InfoOutput(score, wrong,
                PlayTime - (time(NULL) -
-                           StartTime)); //вызов вывода текста для отображения
+                           StartTime), true); //вызов вывода текста для отображения
                                         //актуальной информации об игре
     cout << "\n\n\n\t" << NewWord
          << "\n\n\n\n"; //вывод случайного слова, требуемого для ввода
@@ -49,7 +49,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
       } else {
         system("clear");
         wrong++;
-        InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime));
+        InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime), true);
         cout << "\n\n\n\t" << NewWord << "\n\n\n\n";
       } //если слово введено неверно, флаг Equal не меняется, следовательно
         //игрок должен ввести то же самое слово
