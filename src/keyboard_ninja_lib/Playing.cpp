@@ -23,10 +23,9 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
     system("clear");
     string NewWord =
         RandomWord(dict, DictSize); //выбор случайного слова для ввода
-    InfoOutput(score, wrong,
-               PlayTime - (time(NULL) -
-                           StartTime), true); //вызов вывода текста для отображения
-                                        //актуальной информации об игре
+    InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime),
+               true); //вызов вывода текста для отображения
+                      //актуальной информации об игре
     cout << "\n\n\n\t" << NewWord
          << "\n\n\n\n"; //вывод случайного слова, требуемого для ввода
     string InputWord;
