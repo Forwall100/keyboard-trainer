@@ -22,7 +22,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
     //игры, программа будет работать
     system("clear");
     string NewWord =
-        RandomWord(dict, DictSize); //выбор случайного слова для ввода
+        RandomWord(dict, DictSize); 
     InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime),
                true); //вызов вывода текста для отображения
                       //актуальной информации об игре
