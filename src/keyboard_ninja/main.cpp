@@ -1,15 +1,6 @@
 #include <iostream>
-#include <keyboard_ninja_lib/EndgameOutput.hpp>
-#include <keyboard_ninja_lib/InfoOutput.hpp>
 #include <keyboard_ninja_lib/ParsingDict.hpp>
 #include <keyboard_ninja_lib/Playing.hpp>
-#include <keyboard_ninja_lib/RandomWord.hpp>
-#include <random>
-#include <stdlib.h>
-#include <string>
-#include <time.h>
-#include <unistd.h>
-#include <vector>
 
 using namespace std;
 

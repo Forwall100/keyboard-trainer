@@ -4,9 +4,8 @@
 #include <keyboard_ninja_lib/Playing.hpp>
 #include <keyboard_ninja_lib/RandomWord.hpp>
 #include <keyboard_ninja_lib/SaveStatistic.hpp>
-#include <string>
-#include <time.h>
-#include <vector>
+
+using namespace std;
 
 int Playing(vector<string> dict, int PlayTime, int DictSize) {
   if (PlayTime <= 0) {
@@ -19,15 +18,14 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
 
   while (time(NULL) - StartTime < PlayTime and
          ExitFlag == 0) { //пока разность текущего времени и времени старта игры
-                          //не будет больше, чем время, выбранное игроком для
-                          //игры, программа будет работать
+    //не будет больше, чем время, выбранное игроком для
+    //игры, программа будет работать
     system("clear");
     string NewWord =
         RandomWord(dict, DictSize); //выбор случайного слова для ввода
-    InfoOutput(score, wrong,
-               PlayTime - (time(NULL) -
-                           StartTime)); //вызов вывода текста для отображения
-                                        //актуальной информации об игре
+    InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime),
+               true); //вызов вывода текста для отображения
+                      //актуальной информации об игре
     cout << "\n\n\n\t" << NewWord
          << "\n\n\n\n"; //вывод случайного слова, требуемого для ввода
     string InputWord;
@@ -50,7 +48,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
       } else {
         system("clear");
         wrong++;
-        InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime));
+        InfoOutput(score, wrong, PlayTime - (time(NULL) - StartTime), true);
         cout << "\n\n\n\t" << NewWord << "\n\n\n\n";
       } //если слово введено неверно, флаг Equal не меняется, следовательно
         //игрок должен ввести то же самое слово
@@ -58,7 +56,7 @@ int Playing(vector<string> dict, int PlayTime, int DictSize) {
     system("clear");
   }
   char choice; //для решения о сохранении статистики
-  EndGameOutput(score, wrong, PlayTime);
+  EndGameOutput(score, wrong, PlayTime, true);
   cin >> choice;
   if (choice == 'y') {
     SaveStatistic(score, wrong, PlayTime);

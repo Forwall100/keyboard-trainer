@@ -14,7 +14,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <vector>
-
+using namespace std;
 CTEST(InfoOutput,
       positive_time) { // проверка InfoOutput с положительным временем, в
                        // результате функция должна возвращать все данные с этим
@@ -22,7 +22,7 @@ CTEST(InfoOutput,
   int time = 12, CorrectWord = 5, WrongWord = 10;
   string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
                "10\nОсталось времени: 12 сек";
-  string real = InfoOutput(CorrectWord, WrongWord, time);
+  string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 CTEST(InfoOutput,
@@ -32,7 +32,7 @@ CTEST(InfoOutput,
   int time = -12, CorrectWord = 5, WrongWord = 10;
   string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
                "10\nОсталось времени: 0 сек";
-  string real = InfoOutput(CorrectWord, WrongWord, time);
+  string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 
@@ -62,7 +62,7 @@ CTEST(EndGameOutput,
                "\nКол-во слов в минуту: " + to_string(words_per_minute) +
                +"\n\n\n\n\nСохранить статистику? (y/n)";
 
-  string real = EndGameOutput(CorrectWord, WrongWord, time);
+  string real = EndGameOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 

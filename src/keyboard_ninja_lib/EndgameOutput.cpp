@@ -1,11 +1,11 @@
 #include <iostream>
 #include <keyboard_ninja_lib/EndgameOutput.hpp>
-#include <string>
 
 using namespace std;
+
 // функция получает на вход количество правильных слов, количество неправильных
 // слов и количество секунд, сколько длилась тренировка
-string EndGameOutput(int CorrectWord, int WrongWord, int time) {
+string EndGameOutput(int CorrectWord, int WrongWord, int time, bool output) {
   // в переменной string_data происходит конкатенация строк для дальнейшего их
   // вывода в терминал и возвращения из функции для теста
   string string_data =
@@ -20,6 +20,8 @@ string EndGameOutput(int CorrectWord, int WrongWord, int time) {
                  60.0)) + // слова в минуту вычисляются по формуле: (количество
                           // слов в минуту/время тренировки)*60
       "\n\n\n\n\nСохранить статистику? (y/n)";
-  cout << string_data << endl;
+  if (output) {
+    cout << string_data << endl;
+  }
   return string_data;
 }

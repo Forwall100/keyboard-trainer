@@ -1,7 +1,5 @@
 #include <fstream>
 #include <keyboard_ninja_lib/ParsingDict.hpp>
-#include <string>
-#include <vector>
 
 using namespace std;
 
