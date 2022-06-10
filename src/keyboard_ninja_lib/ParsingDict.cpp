@@ -3,22 +3,23 @@
 
 using namespace std;
 
-vector<string> ParsingDict(string DictPath) {
-  // Создаем вектор, в котором будут храниться слова из словаря
-  vector<string> dict;
-  string line;
+vector<string> ParsingDict(string DictPath)
+{
+    // Создаем вектор, в котором будут храниться слова из словаря
+    vector<string> dict;
+    string line;
 
-  // Открываем файл словаря
-  ifstream file(DictPath);
+    // Открываем файл словаря
+    ifstream file(DictPath);
 
-  // Построчно читаем файл словаря и добавляем слова в вектор
-  if (file.is_open()) {
-    while (getline(file, line)) {
-      dict.push_back(line);
+    // Построчно читаем файл словаря и добавляем слова в вектор
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            dict.push_back(line);
+        }
     }
-  }
-  file.close();
+    file.close();
 
-  // Функция возвращает вектор со словами из словаря
-  return dict;
+    // Функция возвращает вектор со словами из словаря
+    return dict;
 }
