@@ -91,8 +91,8 @@ CTEST(SaveStatistic, test_wpm)
     int score = 10, wrong = 5, training_time = 60;
     float words_per_minute = (score * 60) / training_time;
     string exp = to_string(day) + "." + to_string(month) + "." + to_string(year)
-            + " " + to_string(hour) + ":" + to_string(min) + to_string(score)
-            + to_string(wrong) + to_string(training_time)
+            + " " + to_string(hour) + ":" + to_string(min) + " " + to_string(score)
+            + " " + to_string(wrong) + " " + to_string(training_time) + " "
             + to_string(words_per_minute);
     string real = SaveStatistic(score, wrong, training_time);
     ASSERT_TRUE((exp == real));
