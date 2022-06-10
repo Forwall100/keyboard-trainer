@@ -16,18 +16,20 @@
 #include <vector>
 using namespace std;
 CTEST(InfoOutput,
-      positive_time) { // проверка InfoOutput с положительным временем, в
-                       // результате функция должна возвращать все данные с этим
-                       // же временем
+      positive_time)
+{ // проверка InfoOutput с положительным временем, в
+  // результате функция должна возвращать все данные с этим
+  // же временем
   int time = 12, CorrectWord = 5, WrongWord = 10;
   string exp = "51012";
   string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
 CTEST(InfoOutput,
-      negative_time) { // проверка InfoOutput с положительным временем, в
-                       // результате функция должна возвращать все данные с
-                       // нулевым временем
+      negative_time)
+{ // проверка InfoOutput с положительным временем, в
+  // результате функция должна возвращать все данные с
+  // нулевым временем
   int time = -12, CorrectWord = 5, WrongWord = 10;
   string exp = "5100";
   string real = InfoOutput(CorrectWord, WrongWord, time, false);
@@ -35,11 +37,12 @@ CTEST(InfoOutput,
 }
 
 CTEST(ParsingDict,
-      test_dict_parsing) { // проверка функции ParsingDict, функция вызывается с
-                           // путем до тестового словаря в папке test в качестве
-                           // аргумента, после чего полученный словарь
-                           // сравнивается с такими же значениями, которые
-                           // вносятся в вектор вручную
+      test_dict_parsing)
+{ // проверка функции ParsingDict, функция вызывается с
+  // путем до тестового словаря в папке test в качестве
+  // аргумента, после чего полученный словарь
+  // сравнивается с такими же значениями, которые
+  // вносятся в вектор вручную
   vector<string> exp;
   string line;
   exp.push_back("проверка");
@@ -50,8 +53,9 @@ CTEST(ParsingDict,
 }
 
 CTEST(EndGameOutput,
-      test_string) { // проверка функции EndGameOutput, полностью проверяется
-                     // вывод строк в терминал
+      test_string)
+{ // проверка функции EndGameOutput, полностью проверяется
+  // вывод строк в терминал
   int WrongWord = 10, CorrectWord = 10, time = 60;
   float words_per_minute = (CorrectWord * 60) / time;
   string exp = to_string(CorrectWord) + to_string(WrongWord) + to_string(time) +
@@ -63,13 +67,16 @@ CTEST(EndGameOutput,
 
 CTEST(
     RandomWord,
-    RandomWord_in_dictionary) { // проверяется функция RandomWord на то, входит
-                                // ли возвращаемое слово в используемый словарь
+    RandomWord_in_dictionary)
+{ // проверяется функция RandomWord на то, входит
+  // ли возвращаемое слово в используемый словарь
   vector<string> dict;
   string line;
   ifstream file("test/test_dict.txt");
-  if (file.is_open()) {
-    while (getline(file, line)) {
+  if (file.is_open())
+  {
+    while (getline(file, line))
+    {
       dict.push_back(line);
     }
   }
@@ -77,18 +84,21 @@ CTEST(
   int dSize = dict.size();
   string real = RandomWord(dict, dSize);
   int flag = 0;
-  for (int i = 0; i < dSize; i++) {
-    if (dict[i] == real) {
+  for (int i = 0; i < dSize; i++)
+  {
+    if (dict[i] == real)
+    {
       flag = 1;
     }
   }
   ASSERT_EQUAL(flag, 1);
 }
 
-CTEST(SaveStatistic, test_wpm) { //проверка правильности записываемых в файл статистики значений
+CTEST(SaveStatistic, test_wpm)
+{ //проверка правильности записываемых в файл статистики значений
   time_t now = time(NULL);
   tm *ltm = localtime(&now);
-  
+
   auto year = 1900 + ltm->tm_year;
   auto month = 1 + ltm->tm_mon;
   auto day = ltm->tm_mday;
