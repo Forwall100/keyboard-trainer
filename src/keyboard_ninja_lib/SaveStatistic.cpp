@@ -30,8 +30,8 @@ string SaveStatistic(int score, int wrong, int training_time)
     string_array[2] = to_string(wrong);
     string_array[3] = to_string((training_time < 0 ? 0 : training_time));
     string_array[4] = to_string((float)score / ((float)training_time / 60.0));
-    string string_data = string_array[0] + " " + string_array[1] + " " + string_array[2] + " "
-            + string_array[3] + " " + string_array[4];
+    string string_data = string_array[0] + " " + string_array[1] + " "
+            + string_array[2] + " " + string_array[3] + " " + string_array[4];
     // Записываем статистику в файл и в строку для тестов
     if (out.is_open()) {
         out << "\n\nТренировка " << string_array[0] << endl;
