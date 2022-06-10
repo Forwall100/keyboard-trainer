@@ -56,11 +56,8 @@ CTEST(EndGameOutput,
                      // вывод строк в терминал
   int WrongWord = 10, CorrectWord = 10, time = 60;
   float words_per_minute = (CorrectWord * 60) / time;
-  string exp = "Правильно введенные слова: " + to_string(CorrectWord) +
-               "\nНeправильно введенные слова: " + to_string(WrongWord) +
-               "\nВремя тренировки: " + to_string(time) +
-               "\nКол-во слов в минуту: " + to_string(words_per_minute) +
-               +"\n\n\n\n\nСохранить статистику? (y/n)";
+  string exp = to_string(CorrectWord) + to_string(WrongWord) + to_string(time) +
+               to_string(words_per_minute);
 
   string real = EndGameOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
