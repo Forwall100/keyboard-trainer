@@ -13,7 +13,8 @@ CTEST(InfoOutput, positive_time)
     // результате функция должна возвращать все данные с этим
     // же временем
     int time = 12, CorrectWord = 5, WrongWord = 10;
-    string exp = "51012";
+    string exp = to_string(CorrectWord) + " " + to_string(WrongWord) + " "
+            + to_string(time);
     string real = InfoOutput(CorrectWord, WrongWord, time, false);
     ASSERT_TRUE((exp == real));
 }
@@ -22,7 +23,7 @@ CTEST(InfoOutput, negative_time)
     // результате функция должна возвращать все данные с
     // нулевым временем
     int time = -12, CorrectWord = 5, WrongWord = 10;
-    string exp = "5100";
+    string exp = to_string(CorrectWord) + " " + to_string(WrongWord) + " 0";
     string real = InfoOutput(CorrectWord, WrongWord, time, false);
     ASSERT_TRUE((exp == real));
 }
