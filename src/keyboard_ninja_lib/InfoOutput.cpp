@@ -17,7 +17,7 @@ string InfoOutput(int CorrectWord, int WrongWord, int time, bool output)
     if (output) {
         cout << "Правильно введенные слова: " << array_data[0] << endl;
         cout << "НЕправильно введенные слова: " << array_data[1] << endl;
-        cout << "Осталось времени: " << array_data[0] << " сек";
+        cout << "Осталось времени: " << array_data[2] << " сек";
     }
     return string_data;
 }
