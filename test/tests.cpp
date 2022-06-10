@@ -97,13 +97,10 @@ CTEST(SaveStatistic, test_wpm) {
   auto min = ltm->tm_min;
   int score = 10, wrong = 5, training_time = 60;
   float words_per_minute = (score * 60) / training_time;
-  string exp =
-      "\n\nТренировка " + to_string(day) + "." + to_string(month) + "." +
-      to_string(year) + " " + to_string(hour) + ":" + to_string(min) +
-      " \nПравильно введенные слова: 10\nНЕправильно введенные "
-      "слова: " +
-      to_string(wrong) + "\nВремя тренировки: " + to_string(training_time) +
-      "\nКол-во слов в минуту: " + to_string(words_per_minute) + "\n";
+  string exp = to_string(day) + "." + to_string(month) + "." + to_string(year) +
+               " " + to_string(hour) + ":" + to_string(min) + to_string(score) +
+               to_string(wrong) + to_string(training_time) +
+               to_string(words_per_minute);
   string real = SaveStatistic(score, wrong, training_time);
   ASSERT_TRUE((exp == real));
   remove("./statistic.txt");
