@@ -20,8 +20,7 @@ CTEST(InfoOutput,
                        // результате функция должна возвращать все данные с этим
                        // же временем
   int time = 12, CorrectWord = 5, WrongWord = 10;
-  string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
-               "10\nОсталось времени: 12 сек";
+  string exp = "51012";
   string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
@@ -30,8 +29,7 @@ CTEST(InfoOutput,
                        // результате функция должна возвращать все данные с
                        // нулевым временем
   int time = -12, CorrectWord = 5, WrongWord = 10;
-  string exp = "Правильно введенные слова: 5\nНЕправильно введенные слова: "
-               "10\nОсталось времени: 0 сек";
+  string exp = "5100";
   string real = InfoOutput(CorrectWord, WrongWord, time, false);
   ASSERT_TRUE((exp == real));
 }
