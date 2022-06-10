@@ -85,11 +85,10 @@ CTEST(
   ASSERT_EQUAL(flag, 1);
 }
 
-CTEST(SaveStatistic, test_wpm) {
+CTEST(SaveStatistic, test_wpm) { //проверка правильности записываемых в файл статистики значений
   time_t now = time(NULL);
   tm *ltm = localtime(&now);
-
-  // Записываем в отдельные переменные текущий год, месяц, день, час, минуту
+  
   auto year = 1900 + ltm->tm_year;
   auto month = 1 + ltm->tm_mon;
   auto day = ltm->tm_mday;

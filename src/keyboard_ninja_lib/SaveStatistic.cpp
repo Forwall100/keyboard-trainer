@@ -39,7 +39,6 @@ string SaveStatistic(int score, int wrong, int training_time) {
     out << "Время тренировки: " << string_array[3] << endl;
     out << "Кол-во слов в минуту: " << string_array[4]
         << endl; // запись всех данных о тренировке
-                 // запись в файл
   }
   out.close();
 
