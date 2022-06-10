@@ -20,7 +20,7 @@ string EndGameOutput(int CorrectWord, int WrongWord, int time, bool output)
                / 60.0)); // слова в минуту вычисляются по формуле:
                          // (количество слов в минуту/время тренировки)*60
     string string_data
-            = array_data[0] + array_data[1] + array_data[2] + array_data[3];
+            = array_data[0] + " " + array_data[1] + " " + array_data[2] + " " + array_data[3];
     if (output) {
         cout << "Правильно введенные слова: " << array_data[0] << endl;
         cout << "Нeправильно введенные слова: " << array_data[1] << endl;

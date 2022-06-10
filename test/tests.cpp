@@ -48,8 +48,8 @@ CTEST(EndGameOutput, test_string)
     // вывод строк в терминал
     int WrongWord = 10, CorrectWord = 10, time = 60;
     float words_per_minute = (CorrectWord * 60) / time;
-    string exp = to_string(CorrectWord) + to_string(WrongWord) + to_string(time)
-            + to_string(words_per_minute);
+    string exp = to_string(CorrectWord) + " " + to_string(WrongWord) + " "
+            + to_string(time) + " " + to_string(words_per_minute);
 
     string real = EndGameOutput(CorrectWord, WrongWord, time, false);
     ASSERT_TRUE((exp == real));
