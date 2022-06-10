@@ -16,8 +16,7 @@
 #include <vector>
 using namespace std;
 CTEST(InfoOutput,
-      positive_time)
-{ // проверка InfoOutput с положительным временем, в
+      positive_time) { // проверка InfoOutput с положительным временем, в
   // результате функция должна возвращать все данные с этим
   // же временем
   int time = 12, CorrectWord = 5, WrongWord = 10;
@@ -26,8 +25,7 @@ CTEST(InfoOutput,
   ASSERT_TRUE((exp == real));
 }
 CTEST(InfoOutput,
-      negative_time)
-{ // проверка InfoOutput с положительным временем, в
+      negative_time) { // проверка InfoOutput с положительным временем, в
   // результате функция должна возвращать все данные с
   // нулевым временем
   int time = -12, CorrectWord = 5, WrongWord = 10;
@@ -37,8 +35,7 @@ CTEST(InfoOutput,
 }
 
 CTEST(ParsingDict,
-      test_dict_parsing)
-{ // проверка функции ParsingDict, функция вызывается с
+      test_dict_parsing) { // проверка функции ParsingDict, функция вызывается с
   // путем до тестового словаря в папке test в качестве
   // аргумента, после чего полученный словарь
   // сравнивается с такими же значениями, которые
@@ -53,8 +50,7 @@ CTEST(ParsingDict,
 }
 
 CTEST(EndGameOutput,
-      test_string)
-{ // проверка функции EndGameOutput, полностью проверяется
+      test_string) { // проверка функции EndGameOutput, полностью проверяется
   // вывод строк в терминал
   int WrongWord = 10, CorrectWord = 10, time = 60;
   float words_per_minute = (CorrectWord * 60) / time;
@@ -67,16 +63,13 @@ CTEST(EndGameOutput,
 
 CTEST(
     RandomWord,
-    RandomWord_in_dictionary)
-{ // проверяется функция RandomWord на то, входит
+    RandomWord_in_dictionary) { // проверяется функция RandomWord на то, входит
   // ли возвращаемое слово в используемый словарь
   vector<string> dict;
   string line;
   ifstream file("test/test_dict.txt");
-  if (file.is_open())
-  {
-    while (getline(file, line))
-    {
+  if (file.is_open()) {
+    while (getline(file, line)) {
       dict.push_back(line);
     }
   }
@@ -84,18 +77,17 @@ CTEST(
   int dSize = dict.size();
   string real = RandomWord(dict, dSize);
   int flag = 0;
-  for (int i = 0; i < dSize; i++)
-  {
-    if (dict[i] == real)
-    {
+  for (int i = 0; i < dSize; i++) {
+    if (dict[i] == real) {
       flag = 1;
     }
   }
   ASSERT_EQUAL(flag, 1);
 }
 
-CTEST(SaveStatistic, test_wpm)
-{ //проверка правильности записываемых в файл статистики значений
+CTEST(
+    SaveStatistic,
+    test_wpm) { //проверка правильности записываемых в файл статистики значений
   time_t now = time(NULL);
   tm *ltm = localtime(&now);
 
